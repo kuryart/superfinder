@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+sqlx migrate run

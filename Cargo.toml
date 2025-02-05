@@ -1,0 +1,15 @@
+[package]
+name = "super-finder"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.27", features = ["derive"] }
+tokio = { version = "1.43.0", features = ["full"] }
+sqlx = { version = "0.8.3", features = ["sqlite", "runtime-tokio-native-tls"] }
+anyhow = "1.0.95"
+dotenv = "0.15"
+dirs = "6.0"
+tempfile = "3.16.0"
+assert_cmd = "2.0.16"
+predicates = "3.1.3"
