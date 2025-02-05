@@ -1,6 +1,6 @@
 use std::fs;
 use std::io::{self, Write};
-use std::path::{Path, PathBuf};
+use std::path::Path;
 use std::process::{Command, Stdio};
 
 pub fn handle(excludes: Vec<String>) -> io::Result<()> {
@@ -39,8 +39,8 @@ pub fn handle(excludes: Vec<String>) -> io::Result<()> {
         }
     }
 
-    println!("Exclude dirs: {:?}", exclude_dirs);
-    println!("Exclude files: {:?}", exclude_files);
+    //println!("Exclude dirs: {:?}", exclude_dirs);
+    //println!("Exclude files: {:?}", exclude_files);
 
     // Verificar se os diretórios de exclusão estão presentes no .workpath
     let mut filtered_directories = directories.clone();
@@ -51,7 +51,7 @@ pub fn handle(excludes: Vec<String>) -> io::Result<()> {
         }
     }
 
-    println!("Filtered directories: {:?}", filtered_directories);
+    //println!("Filtered directories: {:?}", filtered_directories);
 
     // Verificar se há exclusões de subdiretórios ou arquivos dentro dos diretórios listados
     let mut fd_excludes = Vec::new();
@@ -65,7 +65,7 @@ pub fn handle(excludes: Vec<String>) -> io::Result<()> {
         }
     }
 
-    println!("Fd Excludes: {:?}", fd_excludes);
+    //println!("Fd Excludes: {:?}", fd_excludes);
 
     // Executar `fd` para listar arquivos nos diretórios, aplicando exclusões de diretórios e caminhos relativos
     let mut fd_command = Command::new("fd");
@@ -75,7 +75,7 @@ pub fn handle(excludes: Vec<String>) -> io::Result<()> {
         fd_command.arg("--exclude").arg(exclude);
     }
 
-    println!("Executando fd: {:?}", fd_command);
+    //println!("Executando fd: {:?}", fd_command);
 
     let fd_output = fd_command.output()?;
 

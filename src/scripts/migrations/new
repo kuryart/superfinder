@@ -1,5 +1,0 @@
-#!/bin/sh -e
-
-ARGS="$*"
-
-sqlx migrate add -r "$ARGS"
